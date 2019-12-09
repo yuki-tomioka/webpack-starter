@@ -19,6 +19,7 @@ const webpackConfig = merge(common, {
         host: '0.0.0.0',
         port: 8080,
         open: true,
+        historyApiFallback: false,
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
