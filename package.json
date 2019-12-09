@@ -7,7 +7,9 @@
     "webpack-cli": "^3.3.10",
     "webpack": "^4.41.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "css-loader": "^3.2.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
