@@ -5,10 +5,11 @@ const common = require('./webpack.common');
 
 const dist = path.join(__dirname, 'dist');
 
-module.exports = merge(common, {
+const webpackConfig = merge(common, {
+    entry: {},
     mode: 'development',
     output: {
-        filename: 'index.min.js',
+        filename: '[name].js',
         path: dist
     },
     devtool: 'cheap-module-eval-source-map',
@@ -21,3 +22,5 @@ module.exports = merge(common, {
         new webpack.HotModuleReplacementPlugin(),
     ]
 });
+
+module.exports = webpackConfig

@@ -1,13 +1,12 @@
 const path = require('path');
+const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
-const src = path.join(__dirname, 'src');
-
 const prodMode = process.env.NODE_ENV === 'production';
 
-module.exports = {
-    entry: path.resolve(src, 'index.js'),
+const webpackConfig = {
+    entry: {},
     resolve: {
         modules: ['node_modules'],
         extensions: ['.js', '.jsx']
@@ -31,11 +30,27 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(src, 'index.html')
-        }),
         new MiniCSSExtractPlugin({
-            filename: prodMode ? 'style.min.css' : 'style.css'
+            filename: prodMode ? '[name].min.css' : '[name].css'
         })
     ]
 };
+
+glob.sync('**/*.js', {
+    cwd: 'src',
+}).forEach(jsName => {
+    const name = jsName.replace('.js', '');
+    webpackConfig.entry[name] = path.resolve('src', jsName)
+    console.log(name);
+    console.log(jsName);
+    const tplName = name + '.html'
+    webpackConfig.plugins.push(new HtmlWebpackPlugin({
+        template: path.resolve('src', tplName),
+        filename: tplName,
+        inject:'body',
+        includeSiblingChunks :true,
+        chunks:[name]
+    }))
+})
+
+module.exports = webpackConfig

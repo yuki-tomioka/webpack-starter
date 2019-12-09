@@ -4,10 +4,12 @@ const common = require('./webpack.common');
 
 const docs = path.join(__dirname, 'docs');
 
-module.exports = merge(common, {
+const webpackConfig = merge(common, {
     mode: 'production',
     output: {
-        filename: 'index.min.js',
+        filename: '[name].min.js',
         path: docs
     }
 });
+
+module.exports = webpackConfig
