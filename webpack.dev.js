@@ -16,7 +16,9 @@ const webpackConfig = merge(common, {
     devServer: {
         contentBase: dist,
         hot: true,
-        port: 3000
+        host: '0.0.0.0',
+        port: 8080,
+        open: true,
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
