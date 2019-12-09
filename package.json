@@ -1,0 +1,27 @@
+{
+  "name": "webpack-starter",
+  "version": "1.0.0",
+  "description": "webpack starter kit",
+  "main": "index.js",
+  "dependencies": {
+    "webpack-cli": "^3.3.10",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://yuki-tomioka@github.com/yuki-tomioka/webpack-starter.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Yuki Tomioka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuki-tomioka/webpack-starter/issues"
+  },
+  "homepage": "https://github.com/yuki-tomioka/webpack-starter#readme"
+}
